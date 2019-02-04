@@ -1,0 +1,51 @@
+
+<div class= "container col-md-5">
+  <h4>Re-Fill the required neccessities:</h4>
+  <form #form="ngForm" novalidate *ngFor='let employee of Details'>
+      <div class= "form-group"></div>
+        <label><b>First Name:</b></label>
+        <input type="text" class="form-control" name="Name" [(ngModel)]="employee.firstName"> 
+      <div>
+        <label><b>Last Name:</b></label>
+        <input type="text" class="form-control" name="Name2" [(ngModel)]="employee.lastName">
+       </div>
+      <div>
+          <label><b>Email:</b></label>
+          <input type="email" class="form-control" name="edmail" [(ngModel)]="employee.mail">
+       </div>
+       <div>
+          <label><b>Contact Number:</b></label>
+          <input type="number" class="form-control" name="ednumber" [(ngModel)]="employee.number">
+        </div>
+        <div>
+            <label><b>Address:</b></label>
+            <textarea rows="3" cols="22" input type="text" class="form-control" name="edaddress" [(ngModel)]="employee.address"></textarea>
+         </div>
+         <div>
+            <label><b>Username:</b></label>
+            <input type="text" class="form-control" required placeholder="User name" name="eduser" [(ngModel)]="employee.user">
+         </div>
+         <label><b>Gender:</b></label>
+         <div class="form-qualif">
+           <label><b>Qualifications:</b></label>
+           <select class="qlf" class="form-control" name="edqualifications" [(ngModel)]="employee.qualifications">
+             <option *ngFor="let qualif of qualifications">
+               {{ qualif }}
+             </option>
+           </select>
+         </div>
+
+         <div class="form-exp">
+            <label><b>Experience:</b></label>
+            <select class="slct" class="form-control" name="edexperience" [(ngModel)]="employee.experience">
+              <option *ngFor="let exp of experience">
+                {{ exp }}
+              </option>
+            </select>
+          </div>
+            <button class= "btn btn-primary" type= "submit" (click)="onSubmit(); add(firstName.value)"> Submit </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class= "btn btn-dark" type= "submit"> &nbsp; &nbsp;Back&nbsp;&nbsp;  </button>
+    </form>
+</div>
+
